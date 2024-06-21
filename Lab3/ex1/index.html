@@ -1,4 +1,5 @@
-<!--This HTML is a page that sends the input straight to google -->
+<!--Open this HTML file in the browser and test. The form will query Google with the search string that is
+entered into the box -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,11 +10,24 @@
 </head>
 
 <body>
-    <form method="GET" action="https://www.google.com/search">
+    <form method="GET" action="https://www.google.com/search" onsubmit="return validateForm()">
         <input type="text" name="q" id="search_string"> />
         <input type="submit" value="Search"/>
     </form>
+
 </body>
+
+<script type="text/javascript">
+    function validateForm() {
+        var search_string = document.getElementById("search_string").value;
+        if (search_string == ""){
+            alert("Search string is empty!");
+            return false        
+        } else {
+            return true;
+        }
+    }
+</script>
 
 </html>
 
